@@ -1,0 +1,9 @@
+@import '../../../styles/theme';
+
+.custom-button {
+  border: none;
+  background-color: map-get($colors, primary);
+  padding: map-get($paddings, large) map-get($paddings, extraLarge);
+  border-radius: map-get($radius, small);
+  color: map-get($colors, white);
+}

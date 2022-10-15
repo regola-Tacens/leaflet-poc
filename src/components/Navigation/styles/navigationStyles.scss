@@ -1,0 +1,9 @@
+@import '../../../styles/theme';
+
+.navigation {
+  &__logo {
+    position: absolute;
+    width: 10rem;
+    margin: map-get($margins, medium);
+  }
+}

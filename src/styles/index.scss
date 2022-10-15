@@ -1,0 +1,6 @@
+@use './reset';
+@import './theme';
+
+.test {
+  color: map-get($colors, primary);
+}
