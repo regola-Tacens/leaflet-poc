@@ -3,7 +3,17 @@
 .custom-button {
   border: none;
   background-color: map-get($colors, primary);
-  padding: map-get($paddings, large) map-get($paddings, extraLarge);
+  margin: map-get($margins, small);
   border-radius: map-get($radius, small);
   color: map-get($colors, white);
+}
+
+.small {
+  padding: map-get($paddings, small) map-get($paddings, medium);
+}
+.medium {
+  padding: map-get($paddings, medium) map-get($paddings, large);
+}
+.large {
+  padding: map-get($paddings, large) map-get($paddings, extraLarge);
 }

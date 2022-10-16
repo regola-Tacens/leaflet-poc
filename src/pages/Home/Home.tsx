@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div className="home" >
         <Link to='/map'>
-          <Button>Start</Button>
+          <Button size='large'>Start</Button>
         </Link>
     </div>
   )

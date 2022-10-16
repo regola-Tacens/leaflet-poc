@@ -1,9 +1,10 @@
 @import '../../../styles/theme';
 
 .navigation {
+  position: sticky;
+  z-index: map-get($index, z4);
   &__logo {
-    position: absolute;
-    width: 10rem;
+    width: 20vh;
     margin: map-get($margins, medium);
   }
 }

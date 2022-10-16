@@ -4,15 +4,22 @@ import './buttonStyles.scss'
 
 type ButtonProps = {
   children: string | JSX.Element, 
-  onClick?: MouseEventHandler<HTMLButtonElement> 
+  onClick?: MouseEventHandler<HTMLButtonElement>,
+  size: "small" |"medium" | "large",
+  width: number
 }
 
-const Button = ({children, onClick} :ButtonProps) => {
+const Button = ({children, onClick, size, width} :ButtonProps) => {
   return (
-    <button className="custom-button" onClick={onClick}>
+    <button className={`custom-button ${size}`} style={{width: width}} onClick={onClick}>
       {children}
     </button>
   )
+}
+
+Button.defaultProps = {
+  size: "medium",
+  width: '100px'
 }
 
 export default Button
