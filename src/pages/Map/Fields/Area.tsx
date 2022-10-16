@@ -35,11 +35,11 @@ const Area = ({field}: AreaProps) => {
   return (
     <>
       <Polyline 
-        positions={field.boundaries.coordinates[0][0].map((coordinate: number[]) => { return [coordinate[1], coordinate[0]]})}
+        positions={field.boundaries.coordinates[0][0].map((coordinate: LatLngExpression[]) => { return [coordinate[1], coordinate[0]]})}
         color={`#${field.color_hex}`}
       />
       <Polygon 
-        positions={field.boundaries.coordinates[0][0].map((coordinate: number[]) => { return [coordinate[1], coordinate[0]]})}
+        positions={field.boundaries.coordinates[0][0].map((coordinate: LatLngExpression[]) => { return [coordinate[1], coordinate[0]]})}
         color={`#${field.color_hex}`}
       >
       <AreaPopup setSelectedSoil={setSelectedSoil} field={field} />

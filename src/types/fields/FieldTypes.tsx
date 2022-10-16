@@ -1,3 +1,5 @@
+import { LatLngExpression } from "leaflet"
+
 export type FieldType = {
   id: string,
   parent_id: string | null,
@@ -18,7 +20,7 @@ export type FieldType = {
   center: number[],
   boundaries: {
     type: string,
-    coordinates: number[][][][]
+    coordinates: LatLngExpression[][][][]
   },
   color_hex: string
 }
