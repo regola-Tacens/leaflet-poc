@@ -41,9 +41,9 @@ const Area = ({field}: AreaProps) => {
         positions={field.boundaries.coordinates[0][0].map((coordinate: number[]) => { return [coordinate[1], coordinate[0]]})}
         color={`#${field.color_hex}`}
       >
-      <AreaPopup fieldId={field.id} fieldCenter={field.center} setSelectedSoil={setSelectedSoil} />
+      <AreaPopup fieldId={field.id} fieldCenter={field.center} setSelectedSoil={setSelectedSoil} fieldName={field.designator} />
       </Polygon>
-      <AreaSoils selectedSoil={selectedSoil}/>
+      <AreaSoils selectedSoil={selectedSoil} />
     </> 
   )
 }

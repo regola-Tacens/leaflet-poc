@@ -6,6 +6,9 @@
   margin: map-get($margins, small);
   border-radius: map-get($radius, small);
   color: map-get($colors, white);
+  &:hover{
+    background-color: darken(map-get($colors, primary),10%);
+  }
 }
 
 .small {

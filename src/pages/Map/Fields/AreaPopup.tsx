@@ -9,16 +9,20 @@ import Button from "../../../components/UI/Button/Button"
 import { MapContext, MapProviderValue } from "../../../providers/mapProvider"
 import { INITIAL_MAP } from "../../../data/initialMapValues"
 
+// styles import
+import '../styles/popupStyles.scss'
+
 type AreapPopupProps = {
   fieldId: string, 
   fieldCenter: number[],
+  fieldName: string,
   setSelectedSoil: Dispatch<React.SetStateAction<{
     color: string;
     coordinates: number[][];
 } | undefined>>
 }
 
-const AreaPopup = ({fieldId, fieldCenter, setSelectedSoil}: AreapPopupProps) => {
+const AreaPopup = ({fieldId, fieldCenter, setSelectedSoil, fieldName}: AreapPopupProps) => {
   const {soils} = useContext<MapProviderValue>(MapContext)
   const map = useMap();
   const AreaSoils = useMemo(() => soils.items.filter(soil => soil.partfield_id === fieldId)[0],[soils])
@@ -41,7 +45,9 @@ const AreaPopup = ({fieldId, fieldCenter, setSelectedSoil}: AreapPopupProps) => 
       maxHeight={150} 
       maxWidth={150}
       offset={[0,-50]}
-        >
+    >
+      <div className="area-popup">
+        <h3 className="area-popup__title">{fieldName}</h3>
         {
           AreaSoils?.mapdata?.features?.map(areaSoil => (
             <Button 
@@ -59,7 +65,8 @@ const AreaPopup = ({fieldId, fieldCenter, setSelectedSoil}: AreapPopupProps) => 
             </Button>
           ))
         }
-      </Popup>
+      </div>
+    </Popup>
 )
 }
 
