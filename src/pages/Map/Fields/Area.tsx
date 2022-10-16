@@ -3,7 +3,7 @@ import { useState } from "react"
 import { Polygon, Polyline, useMap, useMapEvents } from "react-leaflet"
 
 // helpers & providers imports
-import { INITIAL_MAP } from "../../../data/initialMapValues"
+import { INITIAL_MAP } from "../../../constants/initialMapValues"
 
 // type imports
 import { FieldType } from "../../../types/fields/FieldTypes"
@@ -41,7 +41,7 @@ const Area = ({field}: AreaProps) => {
         positions={field.boundaries.coordinates[0][0].map((coordinate: number[]) => { return [coordinate[1], coordinate[0]]})}
         color={`#${field.color_hex}`}
       >
-      <AreaPopup fieldId={field.id} fieldCenter={field.center} setSelectedSoil={setSelectedSoil} fieldName={field.designator} />
+      <AreaPopup setSelectedSoil={setSelectedSoil} field={field} />
       </Polygon>
       <AreaSoils selectedSoil={selectedSoil} />
     </> 

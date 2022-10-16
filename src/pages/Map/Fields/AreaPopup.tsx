@@ -7,25 +7,25 @@ import Button from "../../../components/UI/Button/Button"
 
 // helpers & state imports
 import { MapContext, MapProviderValue } from "../../../providers/mapProvider"
-import { INITIAL_MAP } from "../../../data/initialMapValues"
+import { INITIAL_MAP } from "../../../constants/initialMapValues"
 
 // styles import
 import '../styles/popupStyles.scss'
+import { FieldType } from "../../../types/fields/FieldTypes"
 
 type AreapPopupProps = {
-  fieldId: string, 
-  fieldCenter: number[],
-  fieldName: string,
+  field: FieldType
   setSelectedSoil: Dispatch<React.SetStateAction<{
     color: string;
     coordinates: number[][];
-} | undefined>>
+  } | undefined>>
 }
 
-const AreaPopup = ({fieldId, fieldCenter, setSelectedSoil, fieldName}: AreapPopupProps) => {
+const AreaPopup = ({field, setSelectedSoil}: AreapPopupProps) => {
+  const {id, designator, center} = field
   const {soils} = useContext<MapProviderValue>(MapContext)
   const map = useMap();
-  const AreaSoils = useMemo(() => soils.items.filter(soil => soil.partfield_id === fieldId)[0],[soils])
+  const AreaSoils = useMemo(() => soils.items.filter(soil => soil.partfield_id === id)[0],[soils])
   const hasPopup = !!AreaSoils
   if(!hasPopup) return null
   
@@ -47,14 +47,14 @@ const AreaPopup = ({fieldId, fieldCenter, setSelectedSoil, fieldName}: AreapPopu
       offset={[0,-50]}
     >
       <div className="area-popup">
-        <h3 className="area-popup__title">{fieldName}</h3>
+        <h3 className="area-popup__title">{designator}</h3>
         {
           AreaSoils?.mapdata?.features?.map(areaSoil => (
             <Button 
               key={areaSoil?.properties?.id} 
               size='small' 
               onClick={() => {
-                handleChangeMapView(fieldCenter, INITIAL_MAP.zoomIn)
+                handleChangeMapView(center, INITIAL_MAP.zoomIn)
                 setSelectedSoil({
                   color: areaSoil.properties.color,
                   coordinates: areaSoil.geometry.coordinates[0][0].map(coordinate => { return [coordinate[1], coordinate[0]]})

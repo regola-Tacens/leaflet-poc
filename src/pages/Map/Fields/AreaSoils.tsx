@@ -16,6 +16,8 @@ const AreaSoils = ({selectedSoil}: AreaSoilsProps) => {
       <Polygon 
         positions={selectedSoil.coordinates}
         color={selectedSoil.color}
+        opacity={1}
+        fillOpacity={0.6}
         fillColor={selectedSoil.color}
       />
     </>

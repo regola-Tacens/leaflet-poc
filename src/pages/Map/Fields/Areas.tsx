@@ -4,7 +4,7 @@ import { MapContainer, TileLayer, useMap, useMapEvents, ZoomControl } from 'reac
 
 // helpers & providers imports
 import { MapContext, MapProviderValue } from '../../../providers/mapProvider'
-import { INITIAL_MAP } from '../../../data/initialMapValues'
+import { INITIAL_MAP } from '../../../constants/initialMapValues'
 
 // type imports
 import { FieldType } from '../../../types/fields/FieldTypes'
