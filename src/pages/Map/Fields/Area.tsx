@@ -1,4 +1,5 @@
 // library imports
+import { LatLngExpression } from "leaflet"
 import { useState } from "react"
 import { Polygon, Polyline, useMap, useMapEvents } from "react-leaflet"
 
@@ -18,7 +19,7 @@ type AreaProps = {
 
 const Area = ({field}: AreaProps) => {
   const map = useMap();
-  const [selectedSoil, setSelectedSoil] = useState<{color: string, coordinates: number[][]}>()
+  const [selectedSoil, setSelectedSoil] = useState<{color: string, coordinates: LatLngExpression[][]}>()
 
   const handleChangeMapView = (coordinates: number[], zoom: number) => {
     map.setView([coordinates[1], coordinates[0]], zoom)

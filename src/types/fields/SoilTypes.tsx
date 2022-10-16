@@ -2,7 +2,7 @@ import { LatLngExpression } from "leaflet"
 
 export type FeatureType = {
   geometry: {
-    coordinates: number[][][][],
+    coordinates: LatLngExpression[][][][],
     type: string
   },
   properties: {

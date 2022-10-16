@@ -1,10 +1,11 @@
 // library imports
+import { LatLngExpression } from "leaflet";
 import { Polygon } from "react-leaflet"
 
 type AreaSoilsProps = {
   selectedSoil: {
     color: string;
-    coordinates: number[][];
+    coordinates: LatLngExpression[][];
   } | undefined
 }
 

@@ -12,12 +12,13 @@ import { INITIAL_MAP } from "../../../constants/initialMapValues"
 // styles import
 import '../styles/popupStyles.scss'
 import { FieldType } from "../../../types/fields/FieldTypes"
+import { LatLngExpression } from "leaflet"
 
 type AreapPopupProps = {
   field: FieldType
   setSelectedSoil: Dispatch<React.SetStateAction<{
     color: string;
-    coordinates: number[][];
+    coordinates: LatLngExpression[][];
   } | undefined>>
 }
 
@@ -57,7 +58,7 @@ const AreaPopup = ({field, setSelectedSoil}: AreapPopupProps) => {
                 handleChangeMapView(center, INITIAL_MAP.zoomIn)
                 setSelectedSoil({
                   color: areaSoil.properties.color,
-                  coordinates: areaSoil.geometry.coordinates[0][0].map(coordinate => { return [coordinate[1], coordinate[0]]})
+                  coordinates: areaSoil.geometry.coordinates[0][0].map((coordinate : LatLngExpression[]) => { return [coordinate[1], coordinate[0]]})
                 })
               }}
             >
