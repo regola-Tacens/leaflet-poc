@@ -1,12 +1,12 @@
 // library imports
-import { createContext, Dispatch } from "react"
+import { createContext } from "react"
 
 // type imports
 import { FieldsType } from "../types/fields/FieldTypes"
 import { SoilsType } from "../types/fields/SoilTypes"
 
 // default values
-import fields from '../data/partfields.json'
+import fields  from '../data/partfields.json'
 import soils from  '../data/soilmaps.json'
 
 export const MapContext = createContext<MapProviderValue>(
