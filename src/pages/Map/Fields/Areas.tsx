@@ -1,6 +1,6 @@
 // library imports
 import { useContext } from 'react'
-import { MapContainer, TileLayer, useMap, useMapEvents, ZoomControl } from 'react-leaflet'
+import { LayerGroup, LayersControl, MapContainer, TileLayer, useMap, useMapEvents, ZoomControl } from 'react-leaflet'
 
 // helpers & providers imports
 import { MapContext, MapProviderValue } from '../../../providers/mapProvider'
@@ -26,7 +26,18 @@ const Areas = () => {
         zoom={INITIAL_MAP.zoom} 
         zoomControl={false}
       >
-        <TileLayer url={INITIAL_MAP.url} />
+        <LayersControl>
+          <LayersControl.Overlay name="streetview">
+            <TileLayer url={INITIAL_MAP.streetviewUrl} />
+          </LayersControl.Overlay>
+          <LayersControl.Overlay checked name="Satellite view">
+          <TileLayer
+            url={INITIAL_MAP.satelliteviewUrl}
+            maxZoom= {20}
+            subdomains={['mt1','mt2','mt3']}
+          />
+          </LayersControl.Overlay>
+        </LayersControl>
         {fields?.items.map((field: FieldType) => (
            <Area key={field.id} field={field} />
           ))}
