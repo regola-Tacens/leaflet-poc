@@ -4,7 +4,7 @@
   position: sticky;
   z-index: map-get($index, z4);
   &__logo {
-    width: 20vh;
+    width: 15vh;
     margin: map-get($margins, medium);
   }
 }

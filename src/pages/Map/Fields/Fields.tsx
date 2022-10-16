@@ -17,6 +17,5 @@ const Fields = ({children}: FieldsProps) => {
 }
 
 Fields.Areas = Areas
-// Fields.SoilMap = Partfields
 
 export default Fields

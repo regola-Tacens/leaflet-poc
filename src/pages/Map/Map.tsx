@@ -1,6 +1,3 @@
-// library imports
-import { useState } from "react"
-
 // component imports
 import Fields from "./Fields/Fields"
 
@@ -15,9 +12,8 @@ import MapProvider from "../../providers/mapProvider"
 import './styles/mapStyles.scss'
 
 const Map = () => {
-  const [selectedSoil, setSelectedSoil] = useState<string>('')
   return (
-    <MapProvider value={{fields, soils, selectedSoil, setSelectedSoil}}>
+    <MapProvider value={{fields, soils}}>
       <div className="map">
         <Fields>
           <Fields.Areas />

@@ -13,16 +13,12 @@ export const MapContext = createContext<MapProviderValue>(
   {
     fields: fields,
     soils: soils, 
-    selectedSoil: '',
-    setSelectedSoil: () => {},
   }
 )
 
 export type MapProviderValue = {
   fields: FieldsType,
   soils: SoilsType,
-  selectedSoil: string,
-  setSelectedSoil: Dispatch<React.SetStateAction<string>>,
 }
 
 type MapProviderProps = {

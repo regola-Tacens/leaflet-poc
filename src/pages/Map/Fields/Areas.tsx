@@ -17,10 +17,6 @@ import '../styles/mapStyles.scss'
 
 const Areas = () => {
   const {fields} = useContext<MapProviderValue>(MapContext)
-  // const selectedSoil = soils.items[0].mapdata.features.find(soil => selectedSoilId === soil.properties.id)
-  // const selectedSoilCenter = selectedSoil?.geometry.coordinates[0][0][0]
-  // console.log(selectedSoilCenter)
-  // const mapCenter = selectedSoilCenter ? selectedSoilCenter : [49.6693621002527, 4.97763928469865]
 
   return(
     <div id="map">
@@ -30,7 +26,7 @@ const Areas = () => {
         zoom={INITIAL_MAP.zoom} 
         zoomControl={false}
       >
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        <TileLayer url={INITIAL_MAP.url} />
         {fields?.items.map((field: FieldType) => (
            <Area key={field.id} field={field} />
           ))}
