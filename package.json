@@ -10,9 +10,6 @@
     "lint": "eslint src/**/*.tsx"
   },
   "dependencies": {
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsx-a11y": "^6.6.1",
     "leaflet": "^1.9.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -23,9 +20,14 @@
     "@types/leaflet": "^1.8.0",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.0",
     "@vitejs/plugin-react": "^2.1.0",
     "eslint": "^8.25.0",
+    "eslint-config-airbnb": "^19.0.4",
     "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
     "sass": "^1.55.0",
     "typescript": "^4.6.4",
     "vite": "^3.1.0"
