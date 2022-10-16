@@ -46,6 +46,7 @@ const AreaPopup = ({field, setSelectedSoil}: AreapPopupProps) => {
             <Button
               key={areaSoil?.properties?.id}
               size='small'
+              variant='secondary'
               onClick={() => {
                 handleChangeMapView(map, center, INITIAL_MAP.zoomIn)
                 setSelectedSoil({

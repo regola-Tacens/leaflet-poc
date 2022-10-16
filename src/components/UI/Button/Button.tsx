@@ -9,12 +9,13 @@ type ButtonProps = {
   children: string | JSX.Element,
   onClick?: MouseEventHandler<HTMLButtonElement>,
   size: 'small' |'medium' | 'large',
-  width: number
+  width: number,
+  variant: 'primary' | 'secondary'
 }
 
-const Button = ({children, onClick, size, width} :ButtonProps) => {
+const Button = ({children, onClick, size, width, variant} :ButtonProps) => {
   return (
-    <button className={`custom-button ${size}`} style={{width: width}} onClick={onClick}>
+    <button className={`custom-button ${size} color-${variant}`} style={{width: width}} onClick={onClick}>
       {children}
     </button>
   )
@@ -22,7 +23,8 @@ const Button = ({children, onClick, size, width} :ButtonProps) => {
 
 Button.defaultProps = {
   size: 'medium',
-  width: '100px'
+  width: '100px',
+  variant: 'primary'
 }
 
 export default Button

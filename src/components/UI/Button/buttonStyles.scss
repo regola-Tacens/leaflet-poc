@@ -2,14 +2,10 @@
 
 .custom-button {
   border: none;
-  background-color: map-get($colors, primary);
   margin: map-get($margins, small);
   border-radius: map-get($radius, small);
   color: map-get($colors, white);
-  &:hover{
-    background-color: darken(map-get($colors, primary),10%);
   }
-}
 
 .small {
   padding: map-get($paddings, small) map-get($paddings, medium);
@@ -19,4 +15,17 @@
 }
 .large {
   padding: map-get($paddings, large) map-get($paddings, extraLarge);
+}
+
+.color-primary{
+  background-color: map-get($colors, primary);
+  &:hover{
+    background-color: darken(map-get($colors, primary), 5%);
+  }
+}
+.color-secondary{
+  background-color: map-get($colors, secondary);
+  &:hover{
+    background-color: darken(map-get($colors, secondary), 5%);
+  }
 }
