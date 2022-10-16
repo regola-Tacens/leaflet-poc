@@ -8,9 +8,12 @@ import Button from "../../../components/UI/Button/Button"
 // helpers & state imports
 import { MapContext, MapProviderValue } from "../../../providers/mapProvider"
 import { INITIAL_MAP } from "../../../constants/initialMapValues"
+import { handleChangeMapView } from "../../../helpers/mapHelpers"
 
 // styles import
 import '../styles/popupStyles.scss'
+
+// type imports
 import { FieldType } from "../../../types/fields/FieldTypes"
 import { LatLngExpression } from "leaflet"
 
@@ -29,17 +32,6 @@ const AreaPopup = ({field, setSelectedSoil}: AreapPopupProps) => {
   const AreaSoils = useMemo(() => soils.items.filter(soil => soil.partfield_id === id)[0],[soils])
   const hasPopup = !!AreaSoils
   if(!hasPopup) return null
-  
-  const handleChangeMapView = (coordinates: number[], zoom: number) => {
-    map.setView([coordinates[1], coordinates[0]], zoom)
-  }
-
-  useMapEvents({
-    popupclose: () => {
-      handleChangeMapView([4.965, 49.673], INITIAL_MAP.zoom)
-      setSelectedSoil({color:'', coordinates:[]})
-    }
-  })
 
   return (
     <Popup 
@@ -55,7 +47,7 @@ const AreaPopup = ({field, setSelectedSoil}: AreapPopupProps) => {
               key={areaSoil?.properties?.id} 
               size='small' 
               onClick={() => {
-                handleChangeMapView(center, INITIAL_MAP.zoomIn)
+                handleChangeMapView(map, center, INITIAL_MAP.zoomIn)
                 setSelectedSoil({
                   color: areaSoil.properties.color,
                   coordinates: areaSoil.geometry.coordinates[0][0].map((coordinate : LatLngExpression[]) => { return [coordinate[1], coordinate[0]]})
