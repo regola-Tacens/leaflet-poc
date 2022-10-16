@@ -1,5 +1,5 @@
 // library imports
-import { ReactNode } from "react"
+import {ReactNode} from 'react'
 
 // component imports
 import Areas from './Areas'
@@ -10,7 +10,7 @@ type FieldsProps = {
 
 const Fields = ({children}: FieldsProps) => {
   return (
-    <div className="fields">
+    <div className='fields'>
       {children}
     </div>
   )

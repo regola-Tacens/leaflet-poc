@@ -1,6 +1,6 @@
 // library imports
-import { LatLngExpression } from "leaflet";
-import { Polygon } from "react-leaflet"
+import {LatLngExpression} from 'leaflet';
+import {Polygon} from 'react-leaflet'
 
 type AreaSoilsProps = {
   selectedSoil: {
@@ -11,10 +11,9 @@ type AreaSoilsProps = {
 
 const AreaSoils = ({selectedSoil}: AreaSoilsProps) => {
   if(!selectedSoil) return null
-  console.log(selectedSoil)
   return (
     <>
-      <Polygon 
+      <Polygon
         positions={selectedSoil.coordinates}
         color={selectedSoil.color}
         opacity={1}

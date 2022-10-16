@@ -1,4 +1,4 @@
-import { LatLngExpression } from "leaflet"
+import {LatLngExpression} from 'leaflet'
 
 export type FeatureType = {
   geometry: {
@@ -25,7 +25,7 @@ export type SoilType = {
   },
   metadata: string | null,
   name: string,
-  origin_id: null | number, 
+  origin_id: null | number,
   partfield_id: string,
   source: {
     type: string

@@ -1,5 +1,5 @@
 // library imports
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 // style imports
 import './styles/maps.scss'
@@ -13,7 +13,7 @@ import Map from './pages/Map/Map'
 
 function App() {
   return (
-    <div className="app">
+    <div className='app'>
       <Router>
         <Navigation />
         <Routes>

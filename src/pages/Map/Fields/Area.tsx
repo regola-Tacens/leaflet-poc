@@ -1,21 +1,21 @@
 // library imports
-import { LatLngExpression } from "leaflet"
-import { useState } from "react"
-import { Polygon, Polyline, useMap, useMapEvents } from "react-leaflet"
+import {LatLngExpression} from 'leaflet'
+import {useState} from 'react'
+import {Polygon, Polyline, useMap, useMapEvents} from 'react-leaflet'
 
 // helpers & providers imports
-import { INITIAL_MAP } from "../../../constants/initialMapValues"
-import { handleChangeMapView } from "../../../helpers/mapHelpers"
+import {INITIAL_MAP} from '../../../constants/initialMapValues'
+import {handleChangeMapView} from '../../../helpers/mapHelpers'
 
 // type imports
-import { FieldType } from "../../../types/fields/FieldTypes"
+import {FieldType} from '../../../types/fields/FieldTypes'
 
 // component imports
-import AreaPopup from "./AreaPopup"
-import AreaSoils from "./AreaSoils"
+import AreaPopup from './AreaPopup'
+import AreaSoils from './AreaSoils'
 
 type AreaProps = {
-  field: FieldType 
+  field: FieldType
 }
 
 const Area = ({field}: AreaProps) => {
@@ -25,24 +25,24 @@ const Area = ({field}: AreaProps) => {
   useMapEvents({
     popupclose: () => {
       handleChangeMapView(map, [4.965, 49.673], INITIAL_MAP.zoom)
-      setSelectedSoil({color:'', coordinates:[]})
+      setSelectedSoil({color: '', coordinates: []})
     }
   })
 
   return (
     <>
-      <Polyline 
-        positions={field.boundaries.coordinates[0][0].map((coordinate: LatLngExpression[]) => { return [coordinate[1], coordinate[0]]})}
+      <Polyline
+        positions={field.boundaries.coordinates[0][0].map((coordinate: LatLngExpression[]) => {return [coordinate[1], coordinate[0]]})}
         color={`#${field.color_hex}`}
       />
-      <Polygon 
-        positions={field.boundaries.coordinates[0][0].map((coordinate: LatLngExpression[]) => { return [coordinate[1], coordinate[0]]})}
+      <Polygon
+        positions={field.boundaries.coordinates[0][0].map((coordinate: LatLngExpression[]) => {return [coordinate[1], coordinate[0]]})}
         color={`#${field.color_hex}`}
       >
-      <AreaPopup setSelectedSoil={setSelectedSoil} field={field} />
+        <AreaPopup setSelectedSoil={setSelectedSoil} field={field} />
       </Polygon>
       <AreaSoils selectedSoil={selectedSoil} />
-    </> 
+    </>
   )
 }
 
