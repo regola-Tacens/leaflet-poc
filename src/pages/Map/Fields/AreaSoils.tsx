@@ -1,16 +1,14 @@
 // library imports
-import {LatLngExpression} from 'leaflet';
+import {useContext} from 'react';
 import {Polygon} from 'react-leaflet'
 
-type AreaSoilsProps = {
-  selectedSoil: {
-    color: string;
-    coordinates: LatLngExpression[][];
-  } | undefined
-}
+// provider import
+import {MapContext, MapProviderValue} from '../../../providers/mapProvider';
 
-const AreaSoils = ({selectedSoil}: AreaSoilsProps) => {
+const AreaSoils = () => {
+  const {selectedSoil} = useContext<MapProviderValue>(MapContext)
   if(!selectedSoil) return null
+
   return (
     <>
       <Polygon

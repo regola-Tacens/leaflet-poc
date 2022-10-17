@@ -1,9 +1,10 @@
 // library imports
-import React, {createContext} from 'react'
+import React, {createContext, Dispatch} from 'react'
 
 // type imports
 import {FieldsType} from '../types/fields/FieldTypes'
 import {SoilsType} from '../types/fields/SoilTypes'
+import {LatLngExpression} from 'leaflet'
 
 // default values
 import fields from '../data/partfields.json'
@@ -19,6 +20,14 @@ export const MapContext = createContext<MapProviderValue>(
 export type MapProviderValue = {
   fields: FieldsType,
   soils: SoilsType,
+  selectedSoil: {
+    color: string,
+    coordinates: LatLngExpression[][]
+  } | undefined,
+  setSelectedSoil: Dispatch<React.SetStateAction<{
+    color: string;
+    coordinates: LatLngExpression[][];
+  } | undefined>>
 }
 
 type MapProviderProps = {

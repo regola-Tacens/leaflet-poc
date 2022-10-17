@@ -1,17 +1,18 @@
 // library imports
 import {LatLngExpression} from 'leaflet'
-import {useState} from 'react'
-import {Polygon, Polyline, useMap, useMapEvents} from 'react-leaflet'
+import {useContext} from 'react'
+import {Polygon, Polyline, Popup, useMap, useMapEvents} from 'react-leaflet'
 
 // helpers & providers imports
 import {INITIAL_MAP} from '../../../constants/initialMapValues'
 import {handleChangeMapView} from '../../../helpers/mapHelpers'
+import {MapContext, MapProviderValue} from '../../../providers/mapProvider'
 
 // type imports
 import {FieldType} from '../../../types/fields/FieldTypes'
 
 // component imports
-import AreaPopup from './AreaPopup'
+import AreaPopup from './AreaPopup/AreaPopup'
 import AreaSoils from './AreaSoils'
 
 type AreaProps = {
@@ -20,7 +21,7 @@ type AreaProps = {
 
 const Area = ({field}: AreaProps) => {
   const map = useMap();
-  const [selectedSoil, setSelectedSoil] = useState<{color: string, coordinates: LatLngExpression[][]}>()
+  const {setSelectedSoil} = useContext<MapProviderValue>(MapContext)
 
   useMapEvents({
     popupclose: () => {
@@ -39,9 +40,11 @@ const Area = ({field}: AreaProps) => {
         positions={field.boundaries.coordinates[0][0].map((coordinate: LatLngExpression[]) => {return [coordinate[1], coordinate[0]]})}
         color={`#${field.color_hex}`}
       >
-        <AreaPopup setSelectedSoil={setSelectedSoil} field={field} />
+        <Popup maxHeight={150} maxWidth={150} offset={[0, -50]}>
+          <AreaPopup field={field} />
+        </Popup>
       </Polygon>
-      <AreaSoils selectedSoil={selectedSoil} />
+      <AreaSoils />
     </>
   )
 }
