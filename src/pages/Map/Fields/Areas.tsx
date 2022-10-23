@@ -3,7 +3,7 @@ import {useContext} from 'react'
 import {LayersControl, MapContainer, TileLayer, ZoomControl} from 'react-leaflet'
 
 // helpers & providers imports
-import {MapContext, MapProviderValue} from '../../../providers/mapProvider'
+import {MapContext} from '../../../providers/mapProvider'
 import {INITIAL_MAP} from '../../../constants/initialMapValues'
 
 // type imports
@@ -16,7 +16,7 @@ import Area from './Area'
 import '../styles/mapStyles.scss'
 
 const Areas = () => {
-  const {fields} = useContext<MapProviderValue>(MapContext)
+  const {fields} = useContext(MapContext)!
 
   return(
     <div id='map'>

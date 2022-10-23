@@ -6,16 +6,7 @@ import {FieldsType} from '../types/fields/FieldTypes'
 import {SoilsType} from '../types/fields/SoilTypes'
 import {LatLngExpression} from 'leaflet'
 
-// default values
-import fields from '../data/partfields.json'
-import soils from '../data/soilmaps.json'
-
-export const MapContext = createContext<MapProviderValue>(
-  {
-    fields: fields,
-    soils: soils,
-  }
-)
+export const MapContext = createContext<MapProviderValue | null>(null)
 
 export type MapProviderValue = {
   fields: FieldsType,

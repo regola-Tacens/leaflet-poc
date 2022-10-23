@@ -4,7 +4,7 @@ import {useMap} from 'react-leaflet'
 import {LatLngExpression} from 'leaflet'
 
 // helpers & constants imports
-import {MapContext, MapProviderValue} from '../../../../providers/mapProvider'
+import {MapContext} from '../../../../providers/mapProvider'
 import {handleChangeMapView} from '../../../../helpers/mapHelpers'
 import {INITIAL_MAP} from '../../../../constants/initialMapValues'
 
@@ -22,7 +22,7 @@ type AreaPopupContentProps = {
 
 const AreaPopupContent = ({id, center, AreaSoils}: AreaPopupContentProps) => {
   const map = useMap();
-  const {setSelectedSoil} = useContext<MapProviderValue>(MapContext)
+  const {setSelectedSoil} = useContext(MapContext)!
 
   return (
     <>

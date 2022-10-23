@@ -3,10 +3,10 @@ import {useContext} from 'react';
 import {Polygon} from 'react-leaflet'
 
 // provider import
-import {MapContext, MapProviderValue} from '../../../providers/mapProvider';
+import {MapContext} from '../../../providers/mapProvider';
 
 const AreaSoils = () => {
-  const {selectedSoil} = useContext<MapProviderValue>(MapContext)
+  const {selectedSoil} = useContext(MapContext)!
   if(!selectedSoil) return null
 
   return (

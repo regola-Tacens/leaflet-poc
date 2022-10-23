@@ -6,7 +6,7 @@ import {Polygon, Polyline, Popup, useMap, useMapEvents} from 'react-leaflet'
 // helpers & providers imports
 import {INITIAL_MAP} from '../../../constants/initialMapValues'
 import {handleChangeMapView} from '../../../helpers/mapHelpers'
-import {MapContext, MapProviderValue} from '../../../providers/mapProvider'
+import {MapContext} from '../../../providers/mapProvider'
 
 // type imports
 import {FieldType} from '../../../types/fields/FieldTypes'
@@ -21,7 +21,7 @@ type AreaProps = {
 
 const Area = ({field}: AreaProps) => {
   const map = useMap();
-  const {setSelectedSoil} = useContext<MapProviderValue>(MapContext)
+  const {setSelectedSoil} = useContext(MapContext)!
 
   useMapEvents({
     popupclose: () => {

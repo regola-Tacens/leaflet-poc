@@ -6,7 +6,7 @@ import AreaPopupHeader from './AreaPopupHeader'
 import AreaPopupContent from './AreaPopupContent'
 
 // helpers & state imports
-import {MapContext, MapProviderValue} from '../../../../providers/mapProvider'
+import {MapContext} from '../../../../providers/mapProvider'
 
 // styles import
 import '../../styles/popupStyles.scss'
@@ -21,7 +21,7 @@ type AreapPopupProps = {
 
 const AreaPopup = ({field}: AreapPopupProps) => {
   const {id, designator, center} = field
-  const {soils} = useContext<MapProviderValue>(MapContext)
+  const {soils} = useContext(MapContext)!
   const AreaSoils = useMemo(() => soils.items.filter(soil => soil.partfield_id === id)[0], [soils, id])
   const hasPopup = !!AreaSoils
 
