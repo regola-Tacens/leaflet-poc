@@ -19,7 +19,6 @@ import {LatLngExpression} from 'leaflet'
 
 const Map = () => {
   const [selectedSoil, setSelectedSoil] = useState<{color: string, coordinates: LatLngExpression[][]}>()
-
   return (
     <MapProvider value={{fields, soils, selectedSoil, setSelectedSoil}}>
       <div className='map'>

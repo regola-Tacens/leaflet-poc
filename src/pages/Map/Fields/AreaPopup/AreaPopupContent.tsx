@@ -36,7 +36,7 @@ const AreaPopupContent = ({id, center, AreaSoils}: AreaPopupContentProps) => {
               handleChangeMapView(map, center, INITIAL_MAP.zoomIn)
               setSelectedSoil({
                 color: areaSoil.properties.color,
-                coordinates: areaSoil.geometry.coordinates[0][0].map((coordinate : LatLngExpression[]) => {return [coordinate[1], coordinate[0]]})
+                coordinates: areaSoil.geometry.coordinates[0][0].map((coordinate : any) => {return [coordinate[1], coordinate[0]]})
               })
             }}
           >

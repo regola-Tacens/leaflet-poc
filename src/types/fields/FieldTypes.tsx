@@ -20,7 +20,7 @@ export type FieldType = {
   center: number[],
   boundaries: {
     type: string,
-    coordinates: LatLngExpression[][][][]
+    coordinates: (LatLngExpression | number)[][][][]
   },
   color_hex: string
 }
